@@ -7,7 +7,7 @@ package practica2;
 
 /**
  *
- * @author xcali
+ * @author escom-projects: Aplicacionesred2
  */
 public class Practica2 {
 

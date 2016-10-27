@@ -34,9 +34,9 @@ public class CRUD {
     }
  
     //Inserta una nueva pelicula en la Base de Datos
-    public boolean insert(String nombre,String genero,int anio,String actor,String pais){
+    public boolean insert(String nombre,float precio,String desc, int existencia){
         try {
-            String query = "INSERT INTO peliculas VALUES(NULL,'"+nombre+"','"+genero+"','"+anio+"','"+actor+"','"+pais+"');";
+            String query = "INSERT INTO productos ( Nombre, Precio, Descripcion, Existencia) VALUES('"+nombre+"','"+precio+"','"+desc+"','"+existencia+"');";
             st.executeUpdate(query);
             return true;
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class CRUD {
     //Devuelve el resultset con los datos de peliculas
     public ResultSet selectXtodas(){
         try {
-            String query = "SELECT * FROM peliculas";
+            String query = "SELECT * FROM productos";
             rs = st.executeQuery(query);
             return rs;
         } catch (Exception e) {
@@ -58,21 +58,9 @@ public class CRUD {
     }
  
     //Devuelve el resultset con los datos de peliculas con select por genero
-    public ResultSet selectXgenero(String genero){
+    public ResultSet selectXid(int id){
         try {
-            String query = "SELECT * FROM peliculas WHERE genero = '"+genero+"'";
-            rs = st.executeQuery(query);
-            return rs;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
- 
-    //Devuelve el resultset con los datos de peliculas con select por pais
-    public ResultSet selectXpais(String pais){
-        try {
-            String query = "SELECT * FROM peliculas WHERE pais = '"+pais+"'";
+            String query = "SELECT * FROM productos WHERE ID = '"+id+"'";
             rs = st.executeQuery(query);
             return rs;
         } catch (Exception e) {
@@ -84,7 +72,7 @@ public class CRUD {
     //Elimina la pelicula
     public boolean delete(int id){
         try {
-            String query = "DELETE FROM peliculas WHERE id = '"+id+"'";
+            String query = "DELETE FROM producto WHERE id = '"+id+"'";
             st.executeUpdate(query);
             return true;
         } catch (Exception e) {
@@ -94,14 +82,13 @@ public class CRUD {
     }
  
     //Actualiza los datos de la pelicula
-    public boolean update(int id,String nombre,String genero,int anio,String actor,String pais){
+    public boolean update(int id,String nombre,float precio,String desc,int existencia){
         try {
-            String query = "UPDATE peliculas SET"
-                    + " nombre = '"+nombre+"',"
-                    + " genero = '"+genero+"',"
-                    + " anio = '"+anio+"',"
-                    + " actor = '"+actor+"',"
-                    + " pais = '"+pais+"' WHERE id = '"+id+"';";
+            String query = "UPDATE producto SET"
+                    + " Nombre = '"+nombre+"',"
+                    + " Precio = '"+precio+"',"
+                    + " Descripcion = '"+desc+"',"
+                    + " Existencia = '"+existencia+"' WHERE id = '"+id+"';";
             st.executeUpdate(query);
             return true;
         } catch (Exception e) {

@@ -5,11 +5,17 @@
  */
 package practica2;
 
+import java.sql.SQLException;
+import practica2.productos.Producto;
+
 /**
  *
  * @author xcali
  */
 public class Servidor {
 	
-        
+        public static void main(String[] args) throws SQLException{
+            Producto p = new Producto();
+            
+        }
 }

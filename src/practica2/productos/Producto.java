@@ -42,7 +42,7 @@ public class Producto implements Serializable{
                 this.nombre = rs.getString(2);
                 this.descripcion = rs.getString(3);
             }
-        System.out.println("Id: 1, nombre: "+this.nombre+", desc: "+this.descripcion);
+        //System.out.println("Id: 1, nombre: "+this.nombre+", desc: "+this.descripcion);
     }
     
     public void comprar(int numeroProductos){
